@@ -1,5 +1,8 @@
 Install-MikroTik-CHR-on-VPS
 
+nano c.sh ctrl +c/ctrl +v
+
+
 #!/bin/bash
 echo "Welcome to Cloudzy! MikroticOS will be installed on your VPS in a few seconds :)"
 wget https://download.mikrotik.com/routeros/7.8/chr-7.8.img.zip -O chr.img.zip  && \
