@@ -34,6 +34,6 @@ fdisk -lu
 如果[chr.img2]Start值不是1， 那么请注意下面的命令.
  Device                 Boot            Start            End            Blocks Id System
 chr.img1                 *               34            15358139        7679038+ 83 Linux
-chr.img2             1                  65570      
+chr.img2                                65570      
 
-第2个的开始扇区为65570。所以要跳过的字节数为 65570*512 offset=512*65537
+第2个[chr.img2]的开始扇区为65570。所以要跳过的字节数为 65570*512 offset=512*65570
