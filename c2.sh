@@ -3,7 +3,7 @@ echo "Welcome to Cloudzy! MikroticOS will be installed on your VPS in a few seco
 wget https://download.mikrotik.com/routeros/7.8/chr-7.8.img.zip -O chr.img.zip  && \
 gunzip -c chr.img.zip > chr.img  && \
 mount -o loop,offset=33571840 chr.img /mnt && \
-ADDRESS=`ipv6 addr show eth0 | grep global | cut -d' ' -f 6 | head -n 1` && \
+ADDRESS=`ip addr show eth0 | grep global | cut -d' ' -f 6 | head -n 1` && \
 GATEWAY=`ipv6 route list | grep default | cut -d' ' -f 3` && \
 echo "/ipv6 address add address=$ADDRESS interface=[/interface ethernet find where name=ether1]
 /ipv6 route add gateway=$GATEWAY
