@@ -13,4 +13,4 @@ y
 重启后正常了
 
 
-warp、DNS、route、激活、clock、gre6、wg、NAT
+warp、DNS、route、激活、clock、new-mss=clamp-to-pmtu、wg、NAT
