@@ -40,3 +40,58 @@ chr.img1                 *               34            15358139        7679038+ 
 chr.img2                                65570      
 
 第2个[chr.img2]的开始扇区为65570。所以要跳过的字节数为 65570*512 offset=512*65570
+
+
+
+### 以前的
+
+MikroTik Installer Script
+Convert Ubuntu22 / Debian11 to MikroTik RouterOS
+
+
+
+0.记录vps ip
+1.以root身份登录
+2.注意网关
+-如何查看网关：
+# ip route list | grep default   =?eth0
+
+
+# fdisk -l   =? /dev/vda      (无数字)
+
+
+
+如果错误 - 执行此命令：
+# fdisk -lu chr.img
+.img.2 start 数字*512=offset
+mount -t auto -o loop,offset=$((1*512)) chr.img /mnt/ 
+
+
+chr-7.6.img offset=33571840
+
+chr-6.49.7.img   offset=512
+
+
+
+
+
+# wget https://raw.githubusercontent.com/happy201807/onekey_sh/main/Mikrotik_installer.sh &&chmod +x * && ./Mikrotik_installer.sh
+
+# echo b > /proc/sysrq-trigger
+之后会reboot 若成功，此时登录winbox即可
+
+
+winbox
+
+DNS= 
+
+IP service 禁用 api api-ssl ftp ssh telnet www 只留winbox（手机、win通用）
+
+注册license
+
+
+NAT :
+IP-firewall-NAT add chain=srcnat Out interface=ether1 Action=masquerade
+
+
+
