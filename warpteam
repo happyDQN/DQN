@@ -1,0 +1,49 @@
+登录cloudflare
+
+
+
+https://bestwish.cloudflareaccess.com/warp
+
+用你申请zero trust的时候使用的名字，替换下面的team名。
+
+打开下面的网页：
+
+1
+
+	
+
+https://你的team名.cloudflareaccess.com/warp
+BASH
+
+https://bestwish.cloudflareaccess.com/warp
+
+按照步骤验证登录。之后在最后一步，在浏览器点击F12，抓取JWT token
+
+格式如下：
+com.cloudflare.warp://你的team名.cloudflareaccess.com/auth?token=<JWT token>
+
+抓取这一串URL。
+
+
+	
+
+出现 Success 即可。注意JWT的exp很短<30s>，要尽快抓，如果失败就刷新网页重新抓取。
+
+
+
+导出文件
+
+配置好WARP网络之后，执行warp-go e 可以导出WireGuard配置文件，根据配置文件中的信息填入到任何一个支持WireGuard协议的软件中
+检测WARP网络
+
+使用刚刚设定好的WARP节点访问该网页，主要查看warp=这一行；如果是plus，证明WARP正在保护你的IP地址，如果是on，WARP会向使用cloudflare cdn的网页透露你的IP地址，如果是off，证明WARP网络并没有开启成功，请查看哪方面出现错误。
+
+https://cloudflare.com/cdn-cgi/trace
+
+warp=plus
+
+	
+发送至 peter
+安装warp-go脚本
+
+wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh && bash warp-go.sh
