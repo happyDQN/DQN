@@ -1,21 +1,12 @@
 登录cloudflare
 
 
-
-https://bestwish.cloudflareaccess.com/warp
-
 用你申请zero trust的时候使用的名字，替换下面的team名。
-
-打开下面的网页：
-
-1
-
 	
 
 https://你的team名.cloudflareaccess.com/warp
-BASH
 
-https://bestwish.cloudflareaccess.com/warp
+
 
 按照步骤验证登录。之后在最后一步，在浏览器点击F12，抓取JWT token
 
@@ -23,7 +14,6 @@ https://bestwish.cloudflareaccess.com/warp
 com.cloudflare.warp://你的team名.cloudflareaccess.com/auth?token=<JWT token>
 
 抓取这一串URL。
-
 
 	
 
@@ -43,7 +33,6 @@ https://cloudflare.com/cdn-cgi/trace
 warp=plus
 
 	
-发送至 peter
-安装warp-go脚本
+一键获取wg安装warp-go脚本
 
 wget -N https://raw.githubusercontent.com/fscarmen/warp/main/warp-go.sh && bash warp-go.sh
