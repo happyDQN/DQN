@@ -26,8 +26,12 @@ docker run --name adguardhome\
 # /container/config/set registry-url=https://registry-1.docker.io tmpdir=/pull 配置pull参数
 
 
-create VETH         Address=172.17.0.2/24 Gateway=172.17.0.1
+create VETH_dns
+
+Address=172.17.0.3/24 Gateway=172.17.0.1
+
 create bridge
+
 add address for bridge      Address= 172.17.0.1/24
 add bridge port for VETH
 
@@ -35,7 +39,7 @@ IP - DNS - enable Allow Remote Requests
 
 Remote image：adguard/adguardhome
 
-# mount:
+# mount: auto
 
 Src:  /opt/adguardhome/work  Dst:  /opt/adguardhome/work
 Src:  /opt/adguardhome/conf   Dst:  /opt/adguardhome/conf
@@ -47,17 +51,8 @@ Src:  /opt/adguardhome/conf   Dst:  /opt/adguardhome/conf
 IP - firewall - NAT
 dstnat TCP Dst. port 3000  action=dst-nat To address To ports 3000
 
-dstnat TCP Dst. port 80  action=dst-nat To address To ports 80
-
-dstnat TCP Dst. port 8443  action=dst-nat To address To ports 443 
-
-Certificate    *.emample.com  Cloudfare DNS api
-
-DNS-over-TLS error :
-validating certificate pair: certificate has no IP addresses, this may cause issues with DNS-over-TLS clients
-
-
-# /container/set 0 start-on-boot=yes   
+IP - dns:
+172.17.0.3
 
 local:
-IP-DNS remote
+IP-DNS remote  172.17.0.1
