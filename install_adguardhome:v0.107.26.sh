@@ -23,7 +23,7 @@ docker run --name adguardhome\
 # /system/device-mode/update container=yes      # reset or reboot ENABLE docker
 
 
-# /container/config/set registry-url=https://registry-1.docker.io tmpdir=/pull 配置pull参数
+# /container/config/set registry-url=https://registry-1.docker.io tmpdir=/pull 
 
 
 create VETH_dns
